@@ -32,12 +32,12 @@ export const getServerSideProps =async  (context) => {
   const genre = context.query.genre;
   console.log('url', requests.fetchTrending.url);
 
-  // const request = await fetch(`https://api.themoviedb.org/3/${requests[genre]?.url || requests.fetchTrending.url}`)
-  // .then(res => res.json());
+  const request = await fetch(`https://api.themoviedb.org/3/${requests[genre]?.url || requests.fetchTrending.url}`)
+  .then(res => res.json());   
 
   return {
     props: {
-      // results: request.results,
+      results: request.results,
     }
   }
 }
